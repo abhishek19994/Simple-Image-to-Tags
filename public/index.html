@@ -1,0 +1,75 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   
+
+    <title>Image Tags Reciever</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+
+</head>
+<h3> Image Tags Reciever</h3>
+<body class="container" style="margin-top:40px;margin-left:400px">
+<div class="col-md-4 col-md-offset-4">
+<form role="form" action="/upload" method="POST" encType="multipart/form-data" id="store">
+  <div class="form-group">
+    
+    <select name="store" onchange="changeAction(this)">
+      <option value="/upload">Upload Image</option>
+      <option value="/post">Paste link</option>
+    </select> 
+  </div>
+    <div class="form-group" style="display: none;" id="one">
+                      <div class="input-group">
+                       
+                       <input type="text" id="link" name="link" placeholder="paste link here">
+
+                      </div>
+                    </div>
+   <div class="form-group" id="two">
+                      <div class="input-group">
+                       
+                        <input class="form-control"  name="fileName" type="file" autofocus>
+                      </div>
+                    </div>
+  <div class="input-group">
+                       
+                        <input type="submit" class="btn btn-sm btn-primary btn-block" value="submit" >
+                      </div>
+                    
+ 
+</form>
+</div>
+</body>
+
+
+<footer id="foot">
+  <p>Please make sure that file uploaded will be in same directory of node js file</p>
+  </footer>
+  <script type="text/javascript" >
+  changeAction = function(select){
+   console.log(select.value);
+   document.getElementById("store").action = select.value;
+   if(select.value==='/upload'){
+      $('#two').show();
+      $('#one').hide();
+      $('#foot').show();
+   }
+   else{
+      $('#one').show();
+      $('#two').hide();
+      $('#foot').hide();
+   }
+}
+</script>
+</html>
